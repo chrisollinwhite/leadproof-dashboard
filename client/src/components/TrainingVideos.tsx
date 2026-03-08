@@ -71,10 +71,10 @@ export default function TrainingVideos() {
     <div className="max-w-4xl mx-auto">
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
-          <PlayCircle className="w-6 h-6" style={{ color: "var(--lp-orange)" }} />
+          <PlayCircle className="w-6 h-6" style={{ color: "var(--lp-pink)" }} />
           <h1 className="lp-section-title text-2xl">Training Videos</h1>
         </div>
-        <p className="text-sm" style={{ color: "var(--lp-slate-light)" }}>
+        <p className="text-sm" style={{ color: "var(--lp-text-mid)" }}>
           Watch these before your first day in the field. New videos added regularly.
         </p>
       </div>
@@ -87,7 +87,7 @@ export default function TrainingVideos() {
             onClick={() => setActiveCategory(cat.id)}
             className="px-4 py-2 rounded-full text-sm font-semibold transition-all"
             style={{
-              background: activeCategory === cat.id ? "var(--lp-orange)" : "oklch(1 0 0 / 6%)",
+              background: activeCategory === cat.id ? "var(--lp-pink)" : "oklch(1 0 0 / 6%)",
               color: activeCategory === cat.id ? "oklch(0.10 0.01 240)" : "var(--lp-slate-light)",
               border: `1px solid ${activeCategory === cat.id ? "transparent" : "oklch(1 0 0 / 10%)"}`,
             }}
@@ -103,20 +103,20 @@ export default function TrainingVideos() {
           <div
             key={video.id}
             className="lp-card p-5 group cursor-pointer transition-all hover:border-orange-500/30"
-            style={{ borderColor: "oklch(1 0 0 / 8%)" }}
+            style={{ borderColor: "var(--lp-border)" }}
           >
             {/* Thumbnail placeholder */}
             <div
               className="relative rounded-lg mb-4 overflow-hidden flex items-center justify-center"
               style={{
-                background: "oklch(1 0 0 / 5%)",
+                background: "var(--lp-surface-2)",
                 height: "140px",
-                border: "1px solid oklch(1 0 0 / 8%)",
+                border: "1px solid var(--lp-border)",
               }}
             >
               <div
                 className="flex flex-col items-center gap-2"
-                style={{ color: "var(--lp-slate)" }}
+                style={{ color: "var(--lp-text-muted)" }}
               >
                 <Lock className="w-8 h-8" />
                 <span className="text-xs font-semibold uppercase tracking-widest">
@@ -125,7 +125,7 @@ export default function TrainingVideos() {
               </div>
               <div
                 className="absolute bottom-2 right-2 px-2 py-1 rounded text-xs font-mono font-bold"
-                style={{ background: "oklch(0 0 0 / 0.6)", color: "var(--lp-white)" }}
+                style={{ background: "oklch(0 0 0 / 0.6)", color: "var(--lp-text)" }}
               >
                 {video.duration}
               </div>
@@ -133,11 +133,11 @@ export default function TrainingVideos() {
 
             <h3
               className="font-bold text-sm mb-1 leading-snug"
-              style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-white)" }}
+              style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-text)" }}
             >
               {video.title}
             </h3>
-            <p className="text-xs leading-relaxed" style={{ color: "var(--lp-slate-light)" }}>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--lp-text-mid)" }}>
               {video.description}
             </p>
 
@@ -145,15 +145,15 @@ export default function TrainingVideos() {
               <span
                 className="lp-badge"
                 style={{
-                  background: "oklch(1 0 0 / 6%)",
-                  color: "var(--lp-slate-light)",
-                  border: "1px solid oklch(1 0 0 / 10%)",
+                  background: "var(--lp-surface-2)",
+                  color: "var(--lp-text-mid)",
+                  border: "1px solid var(--lp-border)",
                   fontSize: "0.65rem",
                 }}
               >
                 {categories.find(c => c.id === video.category)?.label}
               </span>
-              <span className="text-xs" style={{ color: "var(--lp-slate)" }}>
+              <span className="text-xs" style={{ color: "var(--lp-text-muted)" }}>
                 {video.duration}
               </span>
             </div>
@@ -168,8 +168,8 @@ export default function TrainingVideos() {
           border: "1px dashed oklch(0.68 0.195 42 / 0.3)",
         }}
       >
-        <p className="text-sm" style={{ color: "var(--lp-slate-light)" }}>
-          <span style={{ color: "var(--lp-orange)", fontWeight: 700 }}>Videos will be added here</span> as training content is recorded.
+        <p className="text-sm" style={{ color: "var(--lp-text-mid)" }}>
+          <span style={{ color: "var(--lp-pink)", fontWeight: 700 }}>Videos will be added here</span> as training content is recorded.
           Contact your team lead to request specific topics.
         </p>
       </div>

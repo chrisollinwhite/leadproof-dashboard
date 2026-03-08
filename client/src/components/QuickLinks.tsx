@@ -19,7 +19,7 @@ const links: LinkItem[] = [
     description: "Access your GoHighLevel dashboard to manage leads, pipelines, and follow-ups.",
     url: "https://app.gohighlevel.com",
     icon: Monitor,
-    color: "var(--lp-orange)",
+    color: "var(--lp-pink)",
     badge: "GoHighLevel",
   },
   {
@@ -75,10 +75,10 @@ export default function QuickLinks() {
     <div className="max-w-3xl mx-auto">
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
-          <ExternalLink className="w-6 h-6" style={{ color: "var(--lp-orange)" }} />
+          <ExternalLink className="w-6 h-6" style={{ color: "var(--lp-pink)" }} />
           <h1 className="lp-section-title text-2xl">Quick Links</h1>
         </div>
-        <p className="text-sm" style={{ color: "var(--lp-slate-light)" }}>
+        <p className="text-sm" style={{ color: "var(--lp-text-mid)" }}>
           Everything you need, one tap away. No more hunting for URLs.
         </p>
       </div>
@@ -110,7 +110,7 @@ export default function QuickLinks() {
                   <div className="flex items-center gap-2 mb-1">
                     <span
                       className="font-bold text-sm"
-                      style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-white)" }}
+                      style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-text)" }}
                     >
                       {link.title}
                     </span>
@@ -129,14 +129,14 @@ export default function QuickLinks() {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs leading-relaxed" style={{ color: "var(--lp-slate-light)" }}>
+                  <p className="text-xs leading-relaxed" style={{ color: "var(--lp-text-mid)" }}>
                     {link.description}
                   </p>
                 </div>
                 {!link.placeholder && (
                   <ExternalLink
                     className="w-4 h-4 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                    style={{ color: "var(--lp-slate)" }}
+                    style={{ color: "var(--lp-text-muted)" }}
                   />
                 )}
               </div>
@@ -152,8 +152,8 @@ export default function QuickLinks() {
           border: "1px dashed oklch(0.68 0.195 42 / 0.3)",
         }}
       >
-        <p className="text-sm" style={{ color: "var(--lp-slate-light)" }}>
-          <span style={{ color: "var(--lp-orange)", fontWeight: 700 }}>Need a link added?</span>{" "}
+        <p className="text-sm" style={{ color: "var(--lp-text-mid)" }}>
+          <span style={{ color: "var(--lp-pink)", fontWeight: 700 }}>Need a link added?</span>{" "}
           Contact your team lead and they can add it to this page for the whole team.
         </p>
       </div>

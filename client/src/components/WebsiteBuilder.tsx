@@ -261,11 +261,11 @@ export default function WebsiteBuilder() {
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
-          <Code2 className="w-6 h-6" style={{ color: "var(--lp-orange)" }} />
+          <Code2 className="w-6 h-6" style={{ color: "var(--lp-pink)" }} />
           <h1 className="lp-section-title text-2xl">Website Builder</h1>
           <span className="lp-badge lp-badge-orange">Core Tool</span>
         </div>
-        <p className="text-sm" style={{ color: "var(--lp-slate-light)" }}>
+        <p className="text-sm" style={{ color: "var(--lp-text-mid)" }}>
           Fill in the prospect's details to generate a ready-to-paste GHL website and push the lead to CRM.
         </p>
       </div>
@@ -287,7 +287,7 @@ export default function WebsiteBuilder() {
         <div className="space-y-5">
           {/* Section: Website Config */}
           <div className="lp-card p-5">
-            <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-orange)", fontFamily: "Montserrat, sans-serif" }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-pink)", fontFamily: "Montserrat, sans-serif" }}>
               1. Website Selection
             </h2>
             <div className="space-y-4">
@@ -298,16 +298,16 @@ export default function WebsiteBuilder() {
                     value={form.niche}
                     onChange={e => updateForm("niche", e.target.value)}
                     className="lp-input w-full px-4 py-3 pr-10 appearance-none"
-                    style={{ background: "oklch(1 0 0 / 6%)" }}
+                    style={{ background: "var(--lp-surface-2)" }}
                   >
                     <option value="">— Select a niche —</option>
                     {niches.map(n => (
-                      <option key={n.id} value={n.id} style={{ background: "#0D1F35" }}>
+                      <option key={n.id} value={n.id} style={{ background: "var(--lp-surface)" }}>
                         {n.label}
                       </option>
                     ))}
                   </select>
-                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style={{ color: "var(--lp-slate)" }} />
+                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style={{ color: "var(--lp-text-muted)" }} />
                 </div>
               </div>
               <div>
@@ -318,16 +318,16 @@ export default function WebsiteBuilder() {
                     onChange={e => updateForm("version", e.target.value)}
                     disabled={!form.niche}
                     className="lp-input w-full px-4 py-3 pr-10 appearance-none disabled:opacity-40"
-                    style={{ background: "oklch(1 0 0 / 6%)" }}
+                    style={{ background: "var(--lp-surface-2)" }}
                   >
                     <option value="">— Select a version —</option>
                     {versions.map(v => (
-                      <option key={v.id} value={v.id} style={{ background: "#0D1F35" }}>
+                      <option key={v.id} value={v.id} style={{ background: "var(--lp-surface)" }}>
                         {v.label}
                       </option>
                     ))}
                   </select>
-                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style={{ color: "var(--lp-slate)" }} />
+                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style={{ color: "var(--lp-text-muted)" }} />
                 </div>
               </div>
             </div>
@@ -335,14 +335,14 @@ export default function WebsiteBuilder() {
 
           {/* Section: Business Info */}
           <div className="lp-card p-5">
-            <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-orange)", fontFamily: "Montserrat, sans-serif" }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-pink)", fontFamily: "Montserrat, sans-serif" }}>
               2. Business Info
             </h2>
             <div className="space-y-3">
               <div>
                 <label className="lp-label">Business Name *</label>
                 <div className="relative">
-                  <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-slate)" }} />
+                  <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-text-muted)" }} />
                   <input
                     type="text"
                     value={form.businessName}
@@ -355,7 +355,7 @@ export default function WebsiteBuilder() {
               <div>
                 <label className="lp-label">Business Phone</label>
                 <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-slate)" }} />
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-text-muted)" }} />
                   <input
                     type="tel"
                     value={form.businessPhone}
@@ -368,7 +368,7 @@ export default function WebsiteBuilder() {
               <div>
                 <label className="lp-label">Street Address</label>
                 <div className="relative">
-                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-slate)" }} />
+                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-text-muted)" }} />
                   <input
                     type="text"
                     value={form.businessAddress}
@@ -404,23 +404,23 @@ export default function WebsiteBuilder() {
               <div>
                 <label className="lp-label">Google Maps Embed URL (optional)</label>
                 <div className="relative">
-                  <MapPin className="absolute left-3 top-3 w-4 h-4" style={{ color: "var(--lp-slate)" }} />
+                  <MapPin className="absolute left-3 top-3 w-4 h-4" style={{ color: "var(--lp-text-muted)" }} />
                   <textarea
                     value={form.googleMapsEmbed}
                     onChange={e => updateForm("googleMapsEmbed", e.target.value)}
-                    placeholder="Paste the Google Maps embed src URL here (from Google Maps > Share > Embed a map > copy the src URL)"
+                    placeholder="Paste the Google Maps embed src URL here (from Google Maps - Share - Embed a map - copy the src URL)"
                     rows={3}
                     className="lp-input w-full pl-10 pr-4 py-3 resize-none text-xs"
                   />
                 </div>
-                <p className="text-xs mt-1" style={{ color: "var(--lp-slate)" }}>
+                <p className="text-xs mt-1" style={{ color: "var(--lp-text-muted)" }}>
                   Google Maps → Share → Embed a map → copy only the URL inside src="..."
                 </p>
               </div>
               <div>
                 <label className="lp-label">Logo URL (optional)</label>
                 <div className="relative">
-                  <Image className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-slate)" }} />
+                  <Image className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-text-muted)" }} />
                   <input
                     type="url"
                     value={form.logoUrl}
@@ -439,7 +439,7 @@ export default function WebsiteBuilder() {
                       value={form.primaryColor}
                       onChange={e => updateForm("primaryColor", e.target.value)}
                       className="w-10 h-10 rounded cursor-pointer border-0 p-0.5"
-                      style={{ background: "oklch(1 0 0 / 6%)", border: "1px solid oklch(1 0 0 / 12%)" }}
+                      style={{ background: "var(--lp-surface-2)", border: "1px solid var(--lp-border)" }}
                     />
                     <input
                       type="text"
@@ -458,7 +458,7 @@ export default function WebsiteBuilder() {
                       value={form.secondaryColor}
                       onChange={e => updateForm("secondaryColor", e.target.value)}
                       className="w-10 h-10 rounded cursor-pointer border-0 p-0.5"
-                      style={{ background: "oklch(1 0 0 / 6%)", border: "1px solid oklch(1 0 0 / 12%)" }}
+                      style={{ background: "var(--lp-surface-2)", border: "1px solid var(--lp-border)" }}
                     />
                     <input
                       type="text"
@@ -475,10 +475,10 @@ export default function WebsiteBuilder() {
 
           {/* Section: Lead Info for GHL */}
           <div className="lp-card p-5">
-            <h2 className="text-sm font-bold uppercase tracking-widest mb-1" style={{ color: "var(--lp-orange)", fontFamily: "Montserrat, sans-serif" }}>
+            <h2 className="text-sm font-bold uppercase tracking-widest mb-1" style={{ color: "var(--lp-pink)", fontFamily: "Montserrat, sans-serif" }}>
               3. Owner Info
             </h2>
-            <p className="text-xs mb-4" style={{ color: "var(--lp-slate)" }}>
+            <p className="text-xs mb-4" style={{ color: "var(--lp-text-muted)" }}>
               Used to push the lead into GoHighLevel CRM.
             </p>
             <div className="space-y-3">
@@ -486,7 +486,7 @@ export default function WebsiteBuilder() {
                 <div>
                   <label className="lp-label">First Name</label>
                   <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-slate)" }} />
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-text-muted)" }} />
                     <input
                       type="text"
                       value={form.firstName}
@@ -510,7 +510,7 @@ export default function WebsiteBuilder() {
               <div>
                 <label className="lp-label">Owner Email</label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-slate)" }} />
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-text-muted)" }} />
                   <input
                     type="email"
                     value={form.email}
@@ -523,7 +523,7 @@ export default function WebsiteBuilder() {
               <div>
                 <label className="lp-label">Owner Phone</label>
                 <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-slate)" }} />
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-text-muted)" }} />
                   <input
                     type="tel"
                     value={form.ownerPhone}
@@ -576,9 +576,9 @@ export default function WebsiteBuilder() {
                 onClick={handleReset}
                 className="flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-semibold transition-all"
                 style={{
-                  background: "oklch(1 0 0 / 5%)",
-                  border: "1px solid oklch(1 0 0 / 10%)",
-                  color: "var(--lp-slate-light)",
+                  background: "var(--lp-surface-2)",
+                  border: "1px solid var(--lp-border)",
+                  color: "var(--lp-text-mid)",
                 }}
               >
                 <RefreshCw className="w-4 h-4" /> Reset Form
@@ -593,11 +593,11 @@ export default function WebsiteBuilder() {
             {/* Output header */}
             <div
               className="flex items-center justify-between px-5 py-4 border-b"
-              style={{ borderColor: "oklch(1 0 0 / 8%)" }}
+              style={{ borderColor: "var(--lp-border)" }}
             >
               <div className="flex items-center gap-2">
-                <Code2 className="w-4 h-4" style={{ color: "var(--lp-orange)" }} />
-                <span className="text-sm font-semibold" style={{ color: "var(--lp-white)" }}>
+                <Code2 className="w-4 h-4" style={{ color: "var(--lp-pink)" }} />
+                <span className="text-sm font-semibold" style={{ color: "var(--lp-text)" }}>
                   Generated HTML/CSS
                 </span>
                 {output && (
@@ -610,9 +610,9 @@ export default function WebsiteBuilder() {
                     onClick={handleDownload}
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all"
                     style={{
-                      background: "oklch(1 0 0 / 8%)",
-                      border: "1px solid oklch(1 0 0 / 12%)",
-                      color: "var(--lp-slate-light)",
+                      background: "var(--lp-surface-2)",
+                      border: "1px solid var(--lp-border)",
+                      color: "var(--lp-text-mid)",
                     }}
                   >
                     <Download className="w-3.5 h-3.5" /> Download
@@ -621,9 +621,9 @@ export default function WebsiteBuilder() {
                     onClick={handleCopy}
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all"
                     style={{
-                      background: isCopied ? "oklch(0.55 0.15 145 / 0.2)" : "var(--lp-orange)",
+                      background: isCopied ? "oklch(0.55 0.15 145 / 0.2)" : "var(--lp-pink)",
                       border: `1px solid ${isCopied ? "oklch(0.55 0.15 145 / 0.4)" : "transparent"}`,
-                      color: isCopied ? "oklch(0.75 0.15 145)" : "oklch(0.10 0.01 240)",
+                      color: isCopied ? "oklch(0.45 0.15 145)" : "#ffffff",
                     }}
                   >
                     {isCopied ? <><Check className="w-3.5 h-3.5" /> Copied!</> : <><Copy className="w-3.5 h-3.5" /> Copy All</>}
@@ -638,14 +638,14 @@ export default function WebsiteBuilder() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
                   <div
                     className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4"
-                    style={{ background: "oklch(1 0 0 / 5%)" }}
+                    style={{ background: "var(--lp-surface-2)" }}
                   >
-                    <Code2 className="w-8 h-8" style={{ color: "var(--lp-slate)" }} />
+                    <Code2 className="w-8 h-8" style={{ color: "var(--lp-text-muted)" }} />
                   </div>
-                  <p className="text-sm font-semibold mb-2" style={{ color: "var(--lp-slate-light)" }}>
+                  <p className="text-sm font-semibold mb-2" style={{ color: "var(--lp-text-mid)" }}>
                     No code generated yet
                   </p>
-                  <p className="text-xs" style={{ color: "var(--lp-slate)" }}>
+                  <p className="text-xs" style={{ color: "var(--lp-text-muted)" }}>
                     Fill in the form and click "Generate Website Code" to get the ready-to-paste GHL HTML/CSS.
                   </p>
                 </div>
@@ -658,7 +658,7 @@ export default function WebsiteBuilder() {
                     background: "transparent",
                     border: "none",
                     outline: "none",
-                    color: "oklch(0.85 0.05 140)",
+                    color: "oklch(0.30 0.08 150)",
                   }}
                 />
               )}
@@ -668,9 +668,9 @@ export default function WebsiteBuilder() {
             {output && (
               <div
                 className="px-5 py-3 border-t flex items-center justify-between"
-                style={{ borderColor: "oklch(1 0 0 / 8%)" }}
+                style={{ borderColor: "var(--lp-border)" }}
               >
-                <span className="text-xs" style={{ color: "var(--lp-slate)" }}>
+                <span className="text-xs" style={{ color: "var(--lp-text-muted)" }}>
                   {output.length.toLocaleString()} characters · Paste into GHL Custom Code Block
                 </span>
                 <span className="lp-badge lp-badge-orange text-xs">
@@ -685,14 +685,14 @@ export default function WebsiteBuilder() {
             <div
               className="mt-4 p-4 rounded-lg"
               style={{
-                background: "oklch(0.68 0.195 42 / 0.08)",
-                border: "1px solid oklch(0.68 0.195 42 / 0.2)",
+                background: "var(--lp-pink-light)",
+                border: "1px solid oklch(0.60 0.28 0 / 0.2)",
               }}
             >
-              <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "var(--lp-orange)" }}>
+              <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "var(--lp-pink)" }}>
                 How to paste into GoHighLevel
               </p>
-              <ol className="text-xs space-y-1" style={{ color: "var(--lp-slate-light)" }}>
+              <ol className="text-xs space-y-1" style={{ color: "var(--lp-text-mid)" }}>
                 <li>1. Click "Copy All" above</li>
                 <li>2. In GHL, open the funnel/website editor</li>
                 <li>3. Add a "Custom Code" element to the page</li>

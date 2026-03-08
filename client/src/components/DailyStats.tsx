@@ -64,7 +64,7 @@ export default function DailyStats() {
   };
 
   const statFields: { key: keyof DayStats; label: string; color: string; emoji: string }[] = [
-    { key: "calls", label: "Calls Made", color: "var(--lp-orange)", emoji: "📞" },
+    { key: "calls", label: "Calls Made", color: "var(--lp-pink)", emoji: "📞" },
     { key: "doors", label: "Doors Knocked", color: "oklch(0.72 0.18 260)", emoji: "🚪" },
     { key: "demos", label: "Demos Set", color: "oklch(0.72 0.15 145)", emoji: "📱" },
     { key: "closes", label: "Closes", color: "oklch(0.75 0.2 60)", emoji: "🏆" },
@@ -86,10 +86,10 @@ export default function DailyStats() {
     <div className="max-w-3xl mx-auto">
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
-          <BarChart3 className="w-6 h-6" style={{ color: "var(--lp-orange)" }} />
+          <BarChart3 className="w-6 h-6" style={{ color: "var(--lp-pink)" }} />
           <h1 className="lp-section-title text-2xl">Daily Stats</h1>
         </div>
-        <p className="text-sm" style={{ color: "var(--lp-slate-light)" }}>
+        <p className="text-sm" style={{ color: "var(--lp-text-mid)" }}>
           Log your activity every day. Consistency is the key to closing.
         </p>
       </div>
@@ -98,8 +98,8 @@ export default function DailyStats() {
       <div className="lp-card p-6 mb-6">
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4" style={{ color: "var(--lp-orange)" }} />
-            <span className="font-bold text-sm" style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-white)" }}>
+            <Calendar className="w-4 h-4" style={{ color: "var(--lp-pink)" }} />
+            <span className="font-bold text-sm" style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-text)" }}>
               Today — {formatDate(getTodayKey())}
             </span>
           </div>
@@ -114,7 +114,7 @@ export default function DailyStats() {
                 <button
                   onClick={() => setTodayStats(prev => ({ ...prev, [field.key]: Math.max(0, (prev[field.key] as number) - 1) }))}
                   className="w-9 h-9 rounded-lg flex items-center justify-center text-lg font-bold transition-all"
-                  style={{ background: "oklch(1 0 0 / 6%)", color: "var(--lp-white)", border: "1px solid oklch(1 0 0 / 10%)" }}
+                  style={{ background: "var(--lp-surface-2)", color: "var(--lp-text)", border: "1px solid var(--lp-border)" }}
                 >
                   −
                 </button>
@@ -129,7 +129,7 @@ export default function DailyStats() {
                 <button
                   onClick={() => setTodayStats(prev => ({ ...prev, [field.key]: (prev[field.key] as number) + 1 }))}
                   className="w-9 h-9 rounded-lg flex items-center justify-center text-lg font-bold transition-all"
-                  style={{ background: "oklch(1 0 0 / 6%)", color: "var(--lp-white)", border: "1px solid oklch(1 0 0 / 10%)" }}
+                  style={{ background: "var(--lp-surface-2)", color: "var(--lp-text)", border: "1px solid var(--lp-border)" }}
                 >
                   +
                 </button>
@@ -161,8 +161,8 @@ export default function DailyStats() {
       {/* All-time totals */}
       <div className="lp-card p-5 mb-6">
         <div className="flex items-center gap-2 mb-4">
-          <TrendingUp className="w-4 h-4" style={{ color: "var(--lp-orange)" }} />
-          <span className="font-bold text-sm" style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-white)" }}>
+          <TrendingUp className="w-4 h-4" style={{ color: "var(--lp-pink)" }} />
+          <span className="font-bold text-sm" style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-text)" }}>
             All-Time Totals
           </span>
         </div>
@@ -175,7 +175,7 @@ export default function DailyStats() {
               >
                 {totals[field.key as keyof typeof totals]}
               </div>
-              <div className="text-xs mt-1" style={{ color: "var(--lp-slate)" }}>
+              <div className="text-xs mt-1" style={{ color: "var(--lp-text-muted)" }}>
                 {field.label}
               </div>
             </div>
@@ -184,9 +184,9 @@ export default function DailyStats() {
         {totals.demos > 0 && (
           <div
             className="mt-4 pt-4 border-t text-center text-xs"
-            style={{ borderColor: "oklch(1 0 0 / 8%)", color: "var(--lp-slate-light)" }}
+            style={{ borderColor: "var(--lp-border)", color: "var(--lp-text-mid)" }}
           >
-            Close rate: <span style={{ color: "var(--lp-orange)", fontWeight: 700 }}>
+            Close rate: <span style={{ color: "var(--lp-pink)", fontWeight: 700 }}>
               {Math.round((totals.closes / totals.demos) * 100)}%
             </span> · Demo-to-close ratio
           </div>
@@ -197,7 +197,7 @@ export default function DailyStats() {
       {history.length > 0 && (
         <div className="lp-card p-5">
           <div className="flex items-center justify-between mb-4">
-            <span className="font-bold text-sm" style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-white)" }}>
+            <span className="font-bold text-sm" style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-text)" }}>
               Recent History
             </span>
             <button
@@ -217,14 +217,14 @@ export default function DailyStats() {
               <div
                 key={day.date}
                 className="flex items-center justify-between py-2 px-3 rounded-lg"
-                style={{ background: "oklch(1 0 0 / 4%)" }}
+                style={{ background: "var(--lp-surface-2)" }}
               >
-                <span className="text-sm" style={{ color: "var(--lp-slate-light)" }}>
+                <span className="text-sm" style={{ color: "var(--lp-text-mid)" }}>
                   {formatDate(day.date)}
                 </span>
                 <div className="flex items-center gap-4 text-xs">
                   {statFields.map(f => (
-                    <span key={f.key} style={{ color: "var(--lp-slate)" }}>
+                    <span key={f.key} style={{ color: "var(--lp-text-muted)" }}>
                       <span style={{ color: f.color, fontWeight: 700 }}>{day[f.key] as number}</span> {f.label.split(" ")[0]}
                     </span>
                   ))}

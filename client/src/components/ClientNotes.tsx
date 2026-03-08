@@ -138,11 +138,11 @@ export default function ClientNotes() {
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
-          <ClipboardList className="w-6 h-6" style={{ color: "var(--lp-orange)" }} />
+          <ClipboardList className="w-6 h-6" style={{ color: "var(--lp-pink)" }} />
           <h1 className="lp-section-title text-2xl">Client Notes</h1>
           <span className="lp-badge lp-badge-orange">Dev Handoff</span>
         </div>
-        <p className="text-sm" style={{ color: "var(--lp-slate-light)" }}>
+        <p className="text-sm" style={{ color: "var(--lp-text-mid)" }}>
           Fill this out after closing a deal. Hit "Send to Dev Team" and it opens your email pre-filled — just review and send.
         </p>
       </div>
@@ -155,24 +155,24 @@ export default function ClientNotes() {
           border: "1px solid oklch(0.68 0.195 42 / 0.25)",
         }}
       >
-        <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "var(--lp-orange)" }} />
-        <p className="text-xs leading-relaxed" style={{ color: "var(--lp-slate-light)" }}>
-          This sends a formatted email to <span style={{ color: "var(--lp-orange)", fontWeight: 700 }}>{DEV_EMAIL}</span> with subject line{" "}
-          <span style={{ color: "var(--lp-white)", fontWeight: 700 }}>Dev | [Business Name]</span>. Fill in as much as you know — the more detail, the faster the dev team can build.
+        <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "var(--lp-pink)" }} />
+        <p className="text-xs leading-relaxed" style={{ color: "var(--lp-text-mid)" }}>
+          This sends a formatted email to <span style={{ color: "var(--lp-pink)", fontWeight: 700 }}>{DEV_EMAIL}</span> with subject line{" "}
+          <span style={{ color: "var(--lp-text)", fontWeight: 700 }}>Dev | [Business Name]</span>. Fill in as much as you know — the more detail, the faster the dev team can build.
         </p>
       </div>
 
       <div className="space-y-5">
         {/* Sales Rep Info */}
         <div className="lp-card p-5">
-          <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-orange)", fontFamily: "Montserrat, sans-serif" }}>
+          <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-pink)", fontFamily: "Montserrat, sans-serif" }}>
             1. Your Info (Sales Rep)
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className={labelClass}>Your Name *</label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-slate)" }} />
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-text-muted)" }} />
                 <input type="text" value={form.salesRepName} onChange={e => update("salesRepName", e.target.value)}
                   placeholder="Your full name" className="lp-input w-full pl-10 pr-4 py-3" />
               </div>
@@ -187,14 +187,14 @@ export default function ClientNotes() {
 
         {/* Business Info */}
         <div className="lp-card p-5">
-          <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-orange)", fontFamily: "Montserrat, sans-serif" }}>
+          <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-pink)", fontFamily: "Montserrat, sans-serif" }}>
             2. Business Info
           </h2>
           <div className="space-y-3">
             <div>
               <label className={labelClass}>Business Name *</label>
               <div className="relative">
-                <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-slate)" }} />
+                <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: "var(--lp-text-muted)" }} />
                 <input type="text" value={form.businessName} onChange={e => update("businessName", e.target.value)}
                   placeholder="e.g. Smith Plumbing LLC" className="lp-input w-full pl-10 pr-4 py-3" />
               </div>
@@ -233,7 +233,7 @@ export default function ClientNotes() {
 
         {/* Website Details */}
         <div className="lp-card p-5">
-          <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-orange)", fontFamily: "Montserrat, sans-serif" }}>
+          <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-pink)", fontFamily: "Montserrat, sans-serif" }}>
             3. Website Details
           </h2>
           <div className="space-y-3">
@@ -287,7 +287,7 @@ export default function ClientNotes() {
 
         {/* Integrations */}
         <div className="lp-card p-5">
-          <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-orange)", fontFamily: "Montserrat, sans-serif" }}>
+          <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-pink)", fontFamily: "Montserrat, sans-serif" }}>
             4. Integrations
           </h2>
           <div className="space-y-3">
@@ -307,7 +307,7 @@ export default function ClientNotes() {
 
         {/* Testimonials */}
         <div className="lp-card p-5">
-          <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-orange)", fontFamily: "Montserrat, sans-serif" }}>
+          <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-pink)", fontFamily: "Montserrat, sans-serif" }}>
             5. Testimonials
           </h2>
           <textarea value={form.testimonials} onChange={e => update("testimonials", e.target.value)}
@@ -317,10 +317,10 @@ export default function ClientNotes() {
 
         {/* Notes from closing call */}
         <div className="lp-card p-5">
-          <h2 className="text-sm font-bold uppercase tracking-widest mb-2" style={{ color: "var(--lp-orange)", fontFamily: "Montserrat, sans-serif" }}>
+          <h2 className="text-sm font-bold uppercase tracking-widest mb-2" style={{ color: "var(--lp-pink)", fontFamily: "Montserrat, sans-serif" }}>
             6. Notes from Closing Call
           </h2>
-          <p className="text-xs mb-3" style={{ color: "var(--lp-slate)" }}>
+          <p className="text-xs mb-3" style={{ color: "var(--lp-text-muted)" }}>
             Anything the client mentioned that the dev team should know — special requests, things to avoid, specific wording they want, etc.
           </p>
           <textarea value={form.additionalNotes} onChange={e => update("additionalNotes", e.target.value)}
@@ -345,16 +345,16 @@ export default function ClientNotes() {
             onClick={handleReset}
             className="flex items-center justify-center gap-2 px-6 py-4 rounded-lg text-sm font-semibold transition-all"
             style={{
-              background: "oklch(1 0 0 / 5%)",
-              border: "1px solid oklch(1 0 0 / 10%)",
-              color: "var(--lp-slate-light)",
+              background: "var(--lp-surface-2)",
+              border: "1px solid var(--lp-border)",
+              color: "var(--lp-text-mid)",
             }}
           >
             <RefreshCw className="w-4 h-4" /> Reset
           </button>
         </div>
 
-        <p className="text-xs text-center" style={{ color: "var(--lp-slate)" }}>
+        <p className="text-xs text-center" style={{ color: "var(--lp-text-muted)" }}>
           Clicking "Send to Dev Team" opens your default email app with the form pre-filled. Review it and hit Send.
         </p>
       </div>

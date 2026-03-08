@@ -4,8 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ═══════════════════════════════════════════════════════
-   LEADPROOF SALES DASHBOARD — COMMAND CENTER DARK THEME
-   Design: Dark navy + electric orange, military ops feel
+   LEADPROOF SALES DASHBOARD — UPDATED BRAND THEME v2
+   Design: White/light main content + dark sidebar + hot pink accent
+   Brand: Matches leadproofwebsites.com/home-v2 — white bg, #FF0083 pink, #1A1A1A text
    Fonts: Montserrat (headings) + Inter (body) + JetBrains Mono (code)
    ═══════════════════════════════════════════════════════ */
 
@@ -46,46 +47,66 @@
 :root {
   --radius: 0.5rem;
 
-  /* LeadProof Navy + Orange palette */
-  --lp-navy-deep:    oklch(0.14 0.025 240);   /* #0A1628 */
-  --lp-navy:         oklch(0.18 0.028 240);   /* #0D1F35 */
-  --lp-navy-mid:     oklch(0.22 0.025 240);   /* #152840 */
-  --lp-navy-light:   oklch(0.28 0.022 240);   /* #1E3452 */
-  --lp-orange:       oklch(0.68 0.195 42);    /* #F97316 */
-  --lp-orange-dark:  oklch(0.60 0.185 42);    /* #C85E0A */
-  --lp-orange-glow:  oklch(0.68 0.195 42 / 0.25);
-  --lp-slate:        oklch(0.55 0.015 240);   /* muted text */
-  --lp-slate-light:  oklch(0.72 0.012 240);   /* secondary text */
-  --lp-white:        oklch(0.97 0.005 240);   /* near white */
+  /* ── LeadProof v2 Brand Palette ── */
+  /* Sidebar stays dark for navigation clarity */
+  --lp-navy-deep:    oklch(0.14 0.025 240);   /* #0A1628 — sidebar deep bg */
+  --lp-navy:         oklch(0.18 0.028 240);   /* #0D1F35 — sidebar bg */
+  --lp-navy-mid:     oklch(0.22 0.025 240);   /* #152840 — sidebar hover */
+  --lp-navy-light:   oklch(0.28 0.022 240);   /* #1E3452 — sidebar active bg */
 
-  /* Semantic tokens */
-  --background:              var(--lp-navy-deep);
-  --foreground:              var(--lp-white);
-  --card:                    var(--lp-navy);
-  --card-foreground:         var(--lp-white);
-  --popover:                 var(--lp-navy-mid);
-  --popover-foreground:      var(--lp-white);
-  --primary:                 var(--lp-orange);
-  --primary-foreground:      oklch(0.10 0.01 240);
-  --secondary:               var(--lp-navy-mid);
-  --secondary-foreground:    var(--lp-white);
-  --muted:                   var(--lp-navy-light);
-  --muted-foreground:        var(--lp-slate-light);
-  --accent:                  var(--lp-navy-light);
-  --accent-foreground:       var(--lp-white);
+  /* New brand: hot pink accent */
+  --lp-pink:         oklch(0.60 0.28 0);      /* #FF0083 — primary accent */
+  --lp-pink-dark:    oklch(0.52 0.26 0);      /* #CC0069 — hover state */
+  --lp-pink-glow:    oklch(0.60 0.28 0 / 0.18);
+  --lp-pink-light:   oklch(0.60 0.28 0 / 0.08); /* very subtle tint for badges */
+
+  /* Main content: light theme */
+  --lp-bg:           oklch(0.97 0.003 240);   /* #F5F7FA — main content bg */
+  --lp-surface:      oklch(1 0 0);            /* #FFFFFF — card bg */
+  --lp-surface-2:    oklch(0.96 0.004 240);   /* #F0F3F7 — subtle card bg */
+  --lp-border:       oklch(0.90 0.006 240);   /* #E2E8F0 — card borders */
+  --lp-text:         oklch(0.18 0.01 240);    /* #1A1A1A — primary text */
+  --lp-text-mid:     oklch(0.40 0.012 240);   /* #4A5568 — secondary text */
+  --lp-text-muted:   oklch(0.60 0.010 240);   /* #718096 — muted text */
+
+  /* Keep orange alias pointing to pink for backward compat */
+  --lp-orange:       var(--lp-pink);
+  --lp-orange-dark:  var(--lp-pink-dark);
+  --lp-orange-glow:  var(--lp-pink-glow);
+  --lp-slate:        var(--lp-text-muted);
+  --lp-slate-light:  var(--lp-text-mid);
+  --lp-white:        var(--lp-text);
+
+  /* Semantic tokens — light main content */
+  --background:              var(--lp-bg);
+  --foreground:              var(--lp-text);
+  --card:                    var(--lp-surface);
+  --card-foreground:         var(--lp-text);
+  --popover:                 var(--lp-surface);
+  --popover-foreground:      var(--lp-text);
+  --primary:                 var(--lp-pink);
+  --primary-foreground:      oklch(1 0 0);
+  --secondary:               var(--lp-surface-2);
+  --secondary-foreground:    var(--lp-text);
+  --muted:                   var(--lp-surface-2);
+  --muted-foreground:        var(--lp-text-muted);
+  --accent:                  var(--lp-pink-light);
+  --accent-foreground:       var(--lp-pink);
   --destructive:             oklch(0.577 0.245 27.325);
   --destructive-foreground:  oklch(0.985 0 0);
-  --border:                  oklch(1 0 0 / 8%);
-  --input:                   oklch(1 0 0 / 10%);
-  --ring:                    var(--lp-orange);
+  --border:                  var(--lp-border);
+  --input:                   var(--lp-border);
+  --ring:                    var(--lp-pink);
+
+  /* Sidebar stays dark */
   --sidebar:                 var(--lp-navy);
-  --sidebar-foreground:      var(--lp-white);
-  --sidebar-primary:         var(--lp-orange);
-  --sidebar-primary-foreground: oklch(0.10 0.01 240);
+  --sidebar-foreground:      oklch(0.97 0.005 240);
+  --sidebar-primary:         var(--lp-pink);
+  --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent:          var(--lp-navy-mid);
-  --sidebar-accent-foreground: var(--lp-white);
+  --sidebar-accent-foreground: oklch(0.97 0.005 240);
   --sidebar-border:          oklch(1 0 0 / 8%);
-  --sidebar-ring:            var(--lp-orange);
+  --sidebar-ring:            var(--lp-pink);
 }
 
 @layer base {
@@ -110,11 +131,11 @@
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
   }
-  /* Scrollbar styling */
+  /* Light-theme scrollbar */
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: oklch(1 0 0 / 15%); border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: oklch(1 0 0 / 25%); }
+  ::-webkit-scrollbar-thumb { background: oklch(0 0 0 / 12%); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: oklch(0 0 0 / 22%); }
 }
 
 @layer components {
@@ -136,38 +157,48 @@
     .container { padding-left: 2rem; padding-right: 2rem; max-width: 1280px; }
   }
 
-  /* LeadProof custom utilities */
+  /* ── LeadProof custom utilities ── */
+
+  /* Cards: white with subtle shadow on light bg */
   .lp-card {
-    background: var(--lp-navy);
-    border: 1px solid oklch(1 0 0 / 8%);
+    background: var(--lp-surface);
+    border: 1px solid var(--lp-border);
     border-radius: 10px;
+    box-shadow: 0 1px 4px oklch(0 0 0 / 0.06);
   }
   .lp-card-elevated {
-    background: var(--lp-navy-mid);
-    border: 1px solid oklch(1 0 0 / 10%);
+    background: var(--lp-surface);
+    border: 1px solid var(--lp-border);
     border-radius: 10px;
-    box-shadow: 0 4px 24px oklch(0 0 0 / 0.3);
+    box-shadow: 0 4px 16px oklch(0 0 0 / 0.10);
   }
-  .lp-orange-glow {
-    box-shadow: 0 0 20px var(--lp-orange-glow), 0 4px 12px oklch(0 0 0 / 0.2);
-  }
+
+  /* Inputs: light theme */
   .lp-input {
-    background: oklch(1 0 0 / 6%);
-    border: 1px solid oklch(1 0 0 / 12%);
+    background: var(--lp-surface);
+    border: 1.5px solid var(--lp-border);
     border-radius: 6px;
-    color: var(--lp-white);
+    color: var(--lp-text);
     font-family: 'Inter', sans-serif;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
   .lp-input:focus {
     outline: none;
-    border-color: var(--lp-orange);
-    box-shadow: 0 0 0 3px var(--lp-orange-glow);
+    border-color: var(--lp-pink);
+    box-shadow: 0 0 0 3px var(--lp-pink-glow);
   }
-  .lp-input::placeholder { color: var(--lp-slate); }
+  .lp-input::placeholder { color: var(--lp-text-muted); }
+
+  /* Select inputs inherit light theme */
+  .lp-input option {
+    background: var(--lp-surface);
+    color: var(--lp-text);
+  }
+
+  /* Primary button: hot pink */
   .lp-btn-primary {
-    background: var(--lp-orange);
-    color: oklch(0.10 0.01 240);
+    background: var(--lp-pink);
+    color: #ffffff;
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     font-size: 0.875rem;
@@ -177,35 +208,37 @@
     padding: 12px 24px;
     border: none;
     transition: all 0.2s;
-    box-shadow: 0 4px 16px var(--lp-orange-glow);
+    box-shadow: 0 4px 16px var(--lp-pink-glow);
   }
-  .lp-btn-primary:hover {
-    background: var(--lp-orange-dark);
+  .lp-btn-primary:hover:not(:disabled) {
+    background: var(--lp-pink-dark);
     transform: translateY(-1px);
-    box-shadow: 0 6px 22px var(--lp-orange-glow);
+    box-shadow: 0 6px 22px var(--lp-pink-glow);
   }
   .lp-btn-ghost {
     background: transparent;
-    color: var(--lp-slate-light);
+    color: var(--lp-text-mid);
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     border-radius: 6px;
     padding: 10px 16px;
-    border: 1px solid transparent;
+    border: 1.5px solid var(--lp-border);
     transition: all 0.2s;
   }
   .lp-btn-ghost:hover {
-    background: oklch(1 0 0 / 6%);
-    color: var(--lp-white);
-    border-color: oklch(1 0 0 / 10%);
+    background: var(--lp-surface-2);
+    color: var(--lp-text);
+    border-color: oklch(0 0 0 / 20%);
   }
+
+  /* Sidebar nav items (dark sidebar) */
   .lp-nav-item {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px 14px;
     border-radius: 8px;
-    color: var(--lp-slate-light);
+    color: oklch(0.72 0.012 240);
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 0.875rem;
@@ -216,38 +249,46 @@
   }
   .lp-nav-item:hover {
     background: oklch(1 0 0 / 6%);
-    color: var(--lp-white);
+    color: oklch(0.97 0.005 240);
   }
   .lp-nav-item.active {
-    background: var(--lp-orange-glow);
-    color: var(--lp-orange);
-    border-color: oklch(0.68 0.195 42 / 0.2);
+    background: var(--lp-pink-glow);
+    color: var(--lp-pink);
+    border-color: oklch(0.60 0.28 0 / 0.25);
     font-weight: 600;
   }
-  .lp-nav-item.active svg { color: var(--lp-orange); }
+  .lp-nav-item.active svg { color: var(--lp-pink); }
+
+  /* Section titles: dark text on light bg */
   .lp-section-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     font-size: 1.25rem;
-    color: var(--lp-white);
+    color: var(--lp-text);
     letter-spacing: -0.01em;
   }
+
+  /* Labels */
   .lp-label {
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--lp-slate-light);
+    color: var(--lp-text-mid);
     margin-bottom: 6px;
     display: block;
   }
+
+  /* Monospace output */
   .lp-mono {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8rem;
     line-height: 1.6;
-    color: oklch(0.85 0.05 140);
+    color: oklch(0.30 0.08 150);
   }
+
+  /* Badges */
   .lp-badge {
     display: inline-flex;
     align-items: center;
@@ -259,24 +300,25 @@
     text-transform: uppercase;
   }
   .lp-badge-orange {
-    background: var(--lp-orange-glow);
-    color: var(--lp-orange);
-    border: 1px solid oklch(0.68 0.195 42 / 0.3);
+    background: var(--lp-pink-light);
+    color: var(--lp-pink);
+    border: 1px solid oklch(0.60 0.28 0 / 0.25);
   }
   .lp-badge-green {
-    background: oklch(0.55 0.15 145 / 0.2);
-    color: oklch(0.75 0.15 145);
-    border: 1px solid oklch(0.55 0.15 145 / 0.3);
+    background: oklch(0.55 0.15 145 / 0.12);
+    color: oklch(0.45 0.15 145);
+    border: 1px solid oklch(0.55 0.15 145 / 0.25);
   }
+
   .lp-divider {
     height: 1px;
-    background: oklch(1 0 0 / 8%);
+    background: var(--lp-border);
     margin: 20px 0;
   }
+
+  /* Subtle dot grid for light bg */
   .lp-grid-bg {
-    background-image: 
-      linear-gradient(oklch(1 0 0 / 3%) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(1 0 0 / 3%) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background-image: radial-gradient(circle, oklch(0 0 0 / 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 }

@@ -46,7 +46,7 @@ export default function CollectPayment() {
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
-          <CreditCard className="w-6 h-6" style={{ color: "var(--lp-orange)" }} />
+          <CreditCard className="w-6 h-6" style={{ color: "var(--lp-pink)" }} />
           <h1 className="lp-section-title text-2xl">Collect Payment</h1>
           <span
             className="lp-badge text-xs font-bold px-2 py-0.5 rounded-full"
@@ -59,7 +59,7 @@ export default function CollectPayment() {
             Setup Required
           </span>
         </div>
-        <p className="text-sm" style={{ color: "var(--lp-slate-light)" }}>
+        <p className="text-sm" style={{ color: "var(--lp-text-mid)" }}>
           Close the deal on the spot. Once configured, this tab gives you a one-tap payment link to hand to the client.
         </p>
       </div>
@@ -80,10 +80,10 @@ export default function CollectPayment() {
             <Clock className="w-5 h-5" style={{ color: "oklch(0.72 0.18 260)" }} />
           </div>
           <div>
-            <h3 className="font-bold text-sm mb-1" style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-white)" }}>
+            <h3 className="font-bold text-sm mb-1" style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-text)" }}>
               Stripe + GoHighLevel Integration — Coming Soon
             </h3>
-            <p className="text-sm leading-relaxed" style={{ color: "var(--lp-slate-light)" }}>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--lp-text-mid)" }}>
               Payment collection will be wired up in the next session. Once configured, this tab will display a live payment button your clients can tap to pay instantly via Stripe, with the transaction automatically logged in GoHighLevel.
             </p>
           </div>
@@ -92,7 +92,7 @@ export default function CollectPayment() {
 
       {/* Package options preview */}
       <div className="mb-8">
-        <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-orange)", fontFamily: "Montserrat, sans-serif" }}>
+        <h2 className="text-sm font-bold uppercase tracking-widest mb-4" style={{ color: "var(--lp-pink)", fontFamily: "Montserrat, sans-serif" }}>
           Package Options (Preview)
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -108,7 +108,7 @@ export default function CollectPayment() {
                 <div
                   className="absolute -top-3 left-5 px-3 py-1 rounded-full text-xs font-bold"
                   style={{
-                    background: "var(--lp-orange)",
+                    background: "var(--lp-pink)",
                     color: "oklch(0.10 0.01 240)",
                   }}
                 >
@@ -116,15 +116,15 @@ export default function CollectPayment() {
                 </div>
               )}
               <div className="mb-3">
-                <div className="font-black text-2xl mb-0.5" style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-orange)" }}>
+                <div className="font-black text-2xl mb-0.5" style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-pink)" }}>
                   {pkg.price}
                 </div>
-                <div className="font-bold text-sm" style={{ color: "var(--lp-white)" }}>{pkg.name}</div>
-                <p className="text-xs mt-1 leading-relaxed" style={{ color: "var(--lp-slate-light)" }}>{pkg.description}</p>
+                <div className="font-bold text-sm" style={{ color: "var(--lp-text)" }}>{pkg.name}</div>
+                <p className="text-xs mt-1 leading-relaxed" style={{ color: "var(--lp-text-mid)" }}>{pkg.description}</p>
               </div>
               <ul className="space-y-1.5 mb-4">
                 {pkg.features.map(f => (
-                  <li key={f} className="flex items-center gap-2 text-xs" style={{ color: "var(--lp-slate-light)" }}>
+                  <li key={f} className="flex items-center gap-2 text-xs" style={{ color: "var(--lp-text-mid)" }}>
                     <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "oklch(0.72 0.15 145)" }} />
                     {f}
                   </li>
@@ -134,7 +134,7 @@ export default function CollectPayment() {
                 disabled
                 className="w-full py-3 rounded-lg text-sm font-bold flex items-center justify-center gap-2 opacity-40 cursor-not-allowed"
                 style={{
-                  background: pkg.recommended ? "var(--lp-orange)" : "oklch(1 0 0 / 8%)",
+                  background: pkg.recommended ? "var(--lp-pink)" : "oklch(1 0 0 / 8%)",
                   color: pkg.recommended ? "oklch(0.10 0.01 240)" : "var(--lp-slate-light)",
                   border: pkg.recommended ? "none" : "1px solid oklch(1 0 0 / 12%)",
                 }}
@@ -149,7 +149,7 @@ export default function CollectPayment() {
 
       {/* How it will work */}
       <div className="lp-card p-5 mb-6">
-        <h2 className="text-sm font-bold uppercase tracking-widest mb-5" style={{ color: "var(--lp-orange)", fontFamily: "Montserrat, sans-serif" }}>
+        <h2 className="text-sm font-bold uppercase tracking-widest mb-5" style={{ color: "var(--lp-pink)", fontFamily: "Montserrat, sans-serif" }}>
           How It Will Work
         </h2>
         <div className="space-y-4">
@@ -158,8 +158,8 @@ export default function CollectPayment() {
               <div
                 className="flex items-center justify-center w-9 h-9 rounded-xl flex-shrink-0 font-black text-xs"
                 style={{
-                  background: "var(--lp-orange-glow)",
-                  color: "var(--lp-orange)",
+                  background: "var(--lp-pink-glow)",
+                  color: "var(--lp-pink)",
                   fontFamily: "Montserrat, sans-serif",
                   border: "1px solid oklch(0.68 0.195 42 / 0.2)",
                 }}
@@ -167,15 +167,15 @@ export default function CollectPayment() {
                 {s.step}
               </div>
               <div className="flex-1 pt-1">
-                <div className="font-bold text-sm mb-0.5" style={{ color: "var(--lp-white)", fontFamily: "Montserrat, sans-serif" }}>
+                <div className="font-bold text-sm mb-0.5" style={{ color: "var(--lp-text)", fontFamily: "Montserrat, sans-serif" }}>
                   {s.title}
                 </div>
-                <p className="text-xs leading-relaxed" style={{ color: "var(--lp-slate-light)" }}>
+                <p className="text-xs leading-relaxed" style={{ color: "var(--lp-text-mid)" }}>
                   {s.description}
                 </p>
               </div>
               {i < steps.length - 1 && (
-                <ArrowRight className="w-4 h-4 flex-shrink-0 mt-2.5 hidden sm:block" style={{ color: "var(--lp-slate)" }} />
+                <ArrowRight className="w-4 h-4 flex-shrink-0 mt-2.5 hidden sm:block" style={{ color: "var(--lp-text-muted)" }} />
               )}
             </div>
           ))}
@@ -190,9 +190,9 @@ export default function CollectPayment() {
           border: "1px dashed oklch(0.68 0.195 42 / 0.3)",
         }}
       >
-        <Zap className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "var(--lp-orange)" }} />
-        <p className="text-sm" style={{ color: "var(--lp-slate-light)" }}>
-          <span style={{ color: "var(--lp-orange)", fontWeight: 700 }}>Next step:</span> Connect your Stripe account and GoHighLevel to activate payment collection. A reminder has been set — come back to this session to get it wired up.
+        <Zap className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "var(--lp-pink)" }} />
+        <p className="text-sm" style={{ color: "var(--lp-text-mid)" }}>
+          <span style={{ color: "var(--lp-pink)", fontWeight: 700 }}>Next step:</span> Connect your Stripe account and GoHighLevel to activate payment collection. A reminder has been set — come back to this session to get it wired up.
         </p>
       </div>
     </div>

@@ -27,14 +27,14 @@ export default function Login() {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center lp-grid-bg"
-      style={{ background: "var(--lp-navy-deep)" }}
+      className="min-h-screen flex items-center justify-center"
+      style={{ background: "var(--lp-bg)" }}
     >
-      {/* Ambient glow */}
+      {/* Ambient pink glow */}
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full pointer-events-none"
+        className="fixed top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, oklch(0.68 0.195 42 / 0.08) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, oklch(0.60 0.28 0 / 0.07) 0%, transparent 70%)",
         }}
       />
 
@@ -42,18 +42,21 @@ export default function Login() {
         {/* Logo */}
         <div className="text-center mb-8">
           <div
-            className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4 lp-orange-glow"
-            style={{ background: "var(--lp-orange)" }}
+            className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4"
+            style={{
+              background: "var(--lp-pink)",
+              boxShadow: "0 8px 24px var(--lp-pink-glow)",
+            }}
           >
-            <Zap className="w-7 h-7" style={{ color: "oklch(0.10 0.01 240)" }} />
+            <Zap className="w-7 h-7 text-white" />
           </div>
           <h1
             className="text-2xl font-black tracking-tight"
-            style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-white)" }}
+            style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-text)" }}
           >
             LeadProof
           </h1>
-          <p className="text-sm mt-1" style={{ color: "var(--lp-slate-light)" }}>
+          <p className="text-sm mt-1" style={{ color: "var(--lp-text-muted)" }}>
             Sales Team Dashboard
           </p>
         </div>
@@ -61,10 +64,10 @@ export default function Login() {
         {/* Card */}
         <div className="lp-card p-8">
           <div className="flex items-center gap-2 mb-6">
-            <Lock className="w-4 h-4" style={{ color: "var(--lp-orange)" }} />
+            <Lock className="w-4 h-4" style={{ color: "var(--lp-pink)" }} />
             <span
               className="text-sm font-semibold"
-              style={{ color: "var(--lp-slate-light)" }}
+              style={{ color: "var(--lp-text-mid)" }}
             >
               Team Access Only
             </span>
@@ -87,13 +90,13 @@ export default function Login() {
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded"
-                  style={{ color: "var(--lp-slate)" }}
+                  style={{ color: "var(--lp-text-muted)" }}
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
               {error && (
-                <p className="text-sm mt-2" style={{ color: "oklch(0.65 0.2 27)" }}>
+                <p className="text-sm mt-2" style={{ color: "oklch(0.50 0.22 27)" }}>
                   {error}
                 </p>
               )}
@@ -107,17 +110,17 @@ export default function Login() {
             >
               {isLoading ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                   Authenticating...
                 </>
               ) : (
-                "Enter Dashboard →"
+                "ENTER DASHBOARD →"
               )}
             </button>
           </form>
         </div>
 
-        <p className="text-center text-xs mt-6" style={{ color: "var(--lp-slate)" }}>
+        <p className="text-center text-xs mt-6" style={{ color: "var(--lp-text-muted)" }}>
           LeadProof Websites · Internal Use Only
         </p>
       </div>

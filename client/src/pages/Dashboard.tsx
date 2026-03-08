@@ -29,7 +29,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex min-h-screen" style={{ background: "var(--lp-navy-deep)" }}>
+    <div className="flex min-h-screen" style={{ background: "var(--lp-bg)" }}>
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
@@ -60,23 +60,23 @@ export default function Dashboard() {
         {/* Mobile top bar */}
         <div
           className="lg:hidden flex items-center justify-between px-4 py-3 border-b"
-          style={{ background: "var(--lp-navy)", borderColor: "oklch(1 0 0 / 8%)" }}
+          style={{ background: "var(--lp-navy)", borderColor: "oklch(1 0 0 / 12%)" }}
         >
           <button
             onClick={() => setSidebarOpen(true)}
             className="p-2 rounded-lg"
-            style={{ color: "var(--lp-white)" }}
+            style={{ color: "oklch(0.97 0.005 240)" }}
           >
             <Menu className="w-5 h-5" />
           </button>
           <div className="flex items-center gap-2">
             <span
               className="text-sm font-black"
-              style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-orange)" }}
+              style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-pink)" }}
             >
               LeadProof
             </span>
-            <span className="text-sm font-semibold" style={{ color: "var(--lp-white)" }}>
+            <span className="text-sm font-semibold" style={{ color: "oklch(0.97 0.005 240)" }}>
               Dashboard
             </span>
           </div>

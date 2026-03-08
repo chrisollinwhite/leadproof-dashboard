@@ -103,7 +103,7 @@ Either way, I want to make sure you're not losing customers to competitors who a
 const typeColors: Record<string, { bg: string; text: string; border: string }> = {
   "Cold Outreach": {
     bg: "oklch(0.68 0.195 42 / 0.12)",
-    text: "var(--lp-orange)",
+    text: "var(--lp-pink)",
     border: "oklch(0.68 0.195 42 / 0.25)",
   },
   "Objection Handler": {
@@ -140,7 +140,7 @@ function ScriptCard({ script }: { script: Script }) {
           <div>
             <div
               className="font-bold text-sm"
-              style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-white)" }}
+              style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-text)" }}
             >
               {script.title}
             </div>
@@ -157,20 +157,20 @@ function ScriptCard({ script }: { script: Script }) {
           </div>
         </div>
         {expanded ? (
-          <ChevronUp className="w-4 h-4 flex-shrink-0" style={{ color: "var(--lp-slate)" }} />
+          <ChevronUp className="w-4 h-4 flex-shrink-0" style={{ color: "var(--lp-text-muted)" }} />
         ) : (
-          <ChevronDown className="w-4 h-4 flex-shrink-0" style={{ color: "var(--lp-slate)" }} />
+          <ChevronDown className="w-4 h-4 flex-shrink-0" style={{ color: "var(--lp-text-muted)" }} />
         )}
       </button>
 
       {expanded && (
-        <div className="border-t" style={{ borderColor: "oklch(1 0 0 / 8%)" }}>
+        <div className="border-t" style={{ borderColor: "var(--lp-border)" }}>
           <div className="px-5 py-4">
             <pre
               className="text-sm leading-relaxed whitespace-pre-wrap"
               style={{
                 fontFamily: "Inter, sans-serif",
-                color: "var(--lp-slate-light)",
+                color: "var(--lp-text-mid)",
               }}
             >
               {script.content}
@@ -178,13 +178,13 @@ function ScriptCard({ script }: { script: Script }) {
           </div>
           <div
             className="px-5 py-3 border-t flex justify-end"
-            style={{ borderColor: "oklch(1 0 0 / 8%)", background: "oklch(1 0 0 / 3%)" }}
+            style={{ borderColor: "var(--lp-border)", background: "oklch(1 0 0 / 3%)" }}
           >
             <button
               onClick={handleCopy}
               className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all"
               style={{
-                background: copied ? "oklch(0.55 0.15 145 / 0.2)" : "var(--lp-orange)",
+                background: copied ? "oklch(0.55 0.15 145 / 0.2)" : "var(--lp-pink)",
                 color: copied ? "oklch(0.75 0.15 145)" : "oklch(0.10 0.01 240)",
                 border: copied ? "1px solid oklch(0.55 0.15 145 / 0.4)" : "none",
               }}
@@ -207,10 +207,10 @@ export default function SalesScripts() {
     <div className="max-w-3xl mx-auto">
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
-          <FileText className="w-6 h-6" style={{ color: "var(--lp-orange)" }} />
+          <FileText className="w-6 h-6" style={{ color: "var(--lp-pink)" }} />
           <h1 className="lp-section-title text-2xl">Sales Scripts</h1>
         </div>
-        <p className="text-sm" style={{ color: "var(--lp-slate-light)" }}>
+        <p className="text-sm" style={{ color: "var(--lp-text-mid)" }}>
           Click any script to expand it. Copy and customize with the prospect's details before using.
         </p>
       </div>
@@ -223,7 +223,7 @@ export default function SalesScripts() {
             onClick={() => setFilter(type)}
             className="px-4 py-2 rounded-full text-sm font-semibold transition-all"
             style={{
-              background: filter === type ? "var(--lp-orange)" : "oklch(1 0 0 / 6%)",
+              background: filter === type ? "var(--lp-pink)" : "oklch(1 0 0 / 6%)",
               color: filter === type ? "oklch(0.10 0.01 240)" : "var(--lp-slate-light)",
               border: `1px solid ${filter === type ? "transparent" : "oklch(1 0 0 / 10%)"}`,
             }}
@@ -246,8 +246,8 @@ export default function SalesScripts() {
           border: "1px dashed oklch(0.68 0.195 42 / 0.3)",
         }}
       >
-        <p className="text-sm" style={{ color: "var(--lp-slate-light)" }}>
-          <span style={{ color: "var(--lp-orange)", fontWeight: 700 }}>Pro tip:</span> Always replace the bracketed placeholders [OWNER NAME], [CITY], [NICHE], and [PRICE] before using any script.
+        <p className="text-sm" style={{ color: "var(--lp-text-mid)" }}>
+          <span style={{ color: "var(--lp-pink)", fontWeight: 700 }}>Pro tip:</span> Always replace the bracketed placeholders [OWNER NAME], [CITY], [NICHE], and [PRICE] before using any script.
         </p>
       </div>
     </div>

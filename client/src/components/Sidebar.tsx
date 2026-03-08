@@ -17,7 +17,13 @@ interface SidebarProps {
   onSectionChange: (section: Section) => void;
 }
 
-type NavItem = { id: Section; label: string; icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>; badge?: string; badgeColor?: string };
+type NavItem = {
+  id: Section;
+  label: string;
+  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
+  badge?: string;
+  badgeColor?: string;
+};
 
 const toolsItems: NavItem[] = [
   { id: "builder", label: "Website Builder", icon: Code2, badge: "CORE" },
@@ -49,18 +55,18 @@ export default function Sidebar({ activeSection, onSectionChange }: SidebarProps
         <div className="flex items-center gap-3">
           <div
             className="flex items-center justify-center w-9 h-9 rounded-xl flex-shrink-0"
-            style={{ background: "var(--lp-orange)" }}
+            style={{ background: "var(--lp-pink)" }}
           >
-            <Zap className="w-5 h-5" style={{ color: "oklch(0.10 0.01 240)" }} />
+            <Zap className="w-5 h-5 text-white" />
           </div>
           <div>
             <div
               className="text-sm font-black leading-tight"
-              style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-white)" }}
+              style={{ fontFamily: "Montserrat, sans-serif", color: "oklch(0.97 0.005 240)" }}
             >
               LeadProof
             </div>
-            <div className="text-xs" style={{ color: "var(--lp-slate-light)" }}>
+            <div className="text-xs" style={{ color: "oklch(0.72 0.012 240)" }}>
               Sales Dashboard
             </div>
           </div>
@@ -70,18 +76,35 @@ export default function Sidebar({ activeSection, onSectionChange }: SidebarProps
       {/* Nav */}
       <nav className="flex-1 px-3 py-4 overflow-y-auto">
         <div className="mb-3">
-          <span className="px-3 text-xs font-bold uppercase tracking-widest" style={{ color: "var(--lp-slate)", fontFamily: "Montserrat, sans-serif" }}>Tools</span>
+          <span
+            className="px-3 text-xs font-bold uppercase tracking-widest"
+            style={{ color: "oklch(0.55 0.015 240)", fontFamily: "Montserrat, sans-serif" }}
+          >
+            Tools
+          </span>
         </div>
         <div className="space-y-1 mb-5">
           {toolsItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeSection === item.id;
             return (
-              <button key={item.id} onClick={() => onSectionChange(item.id)} className={`lp-nav-item w-full text-left ${isActive ? "active" : ""}`}>
+              <button
+                key={item.id}
+                onClick={() => onSectionChange(item.id)}
+                className={`lp-nav-item w-full text-left ${isActive ? "active" : ""}`}
+              >
                 <Icon className="w-4 h-4 flex-shrink-0" />
                 <span>{item.label}</span>
                 {item.badge && (
-                  <span className="ml-auto text-xs font-bold px-2 py-0.5 rounded-full" style={{ background: "var(--lp-orange-glow)", color: "var(--lp-orange)", fontSize: "0.65rem", letterSpacing: "0.06em" }}>
+                  <span
+                    className="ml-auto text-xs font-bold px-2 py-0.5 rounded-full"
+                    style={{
+                      background: "var(--lp-pink-glow)",
+                      color: "var(--lp-pink)",
+                      fontSize: "0.65rem",
+                      letterSpacing: "0.06em",
+                    }}
+                  >
                     {item.badge}
                   </span>
                 )}
@@ -91,18 +114,36 @@ export default function Sidebar({ activeSection, onSectionChange }: SidebarProps
         </div>
 
         <div className="mb-3 pt-2 border-t" style={{ borderColor: "oklch(1 0 0 / 8%)" }}>
-          <span className="px-3 text-xs font-bold uppercase tracking-widest" style={{ color: "var(--lp-slate)", fontFamily: "Montserrat, sans-serif" }}>Closing</span>
+          <span
+            className="px-3 text-xs font-bold uppercase tracking-widest"
+            style={{ color: "oklch(0.55 0.015 240)", fontFamily: "Montserrat, sans-serif" }}
+          >
+            Closing
+          </span>
         </div>
         <div className="space-y-1">
           {closingItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeSection === item.id;
             return (
-              <button key={item.id} onClick={() => onSectionChange(item.id)} className={`lp-nav-item w-full text-left ${isActive ? "active" : ""}`}>
+              <button
+                key={item.id}
+                onClick={() => onSectionChange(item.id)}
+                className={`lp-nav-item w-full text-left ${isActive ? "active" : ""}`}
+              >
                 <Icon className="w-4 h-4 flex-shrink-0" />
                 <span>{item.label}</span>
                 {item.badge && (
-                  <span className="ml-auto text-xs font-bold px-2 py-0.5 rounded-full" style={{ background: `${item.badgeColor || "var(--lp-orange)"}20`, color: item.badgeColor || "var(--lp-orange)", fontSize: "0.65rem", letterSpacing: "0.06em", border: `1px solid ${item.badgeColor || "var(--lp-orange)"}40` }}>
+                  <span
+                    className="ml-auto text-xs font-bold px-2 py-0.5 rounded-full"
+                    style={{
+                      background: `${item.badgeColor || "var(--lp-pink)"}20`,
+                      color: item.badgeColor || "var(--lp-pink)",
+                      fontSize: "0.65rem",
+                      letterSpacing: "0.06em",
+                      border: `1px solid ${item.badgeColor || "var(--lp-pink)"}40`,
+                    }}
+                  >
                     {item.badge}
                   </span>
                 )}
@@ -126,11 +167,11 @@ export default function Sidebar({ activeSection, onSectionChange }: SidebarProps
           className="mt-4 px-3 py-2 rounded-lg text-xs"
           style={{
             background: "oklch(1 0 0 / 4%)",
-            color: "var(--lp-slate)",
+            color: "oklch(0.65 0.012 240)",
             lineHeight: 1.5,
           }}
         >
-          <span style={{ color: "var(--lp-orange)", fontWeight: 700 }}>LeadProof</span> Websites
+          <span style={{ color: "var(--lp-pink)", fontWeight: 700 }}>LeadProof</span> Websites
           <br />Internal Team Tool
         </div>
       </div>
