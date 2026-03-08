@@ -8,6 +8,8 @@ import {
   ExternalLink,
   LogOut,
   Zap,
+  ClipboardList,
+  CreditCard,
 } from "lucide-react";
 
 interface SidebarProps {
@@ -15,12 +17,19 @@ interface SidebarProps {
   onSectionChange: (section: Section) => void;
 }
 
-const navItems: { id: Section; label: string; icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }> }[] = [
-  { id: "builder", label: "Website Builder", icon: Code2 },
+type NavItem = { id: Section; label: string; icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>; badge?: string; badgeColor?: string };
+
+const toolsItems: NavItem[] = [
+  { id: "builder", label: "Website Builder", icon: Code2, badge: "CORE" },
   { id: "training", label: "Training Videos", icon: PlayCircle },
   { id: "scripts", label: "Sales Scripts", icon: FileText },
   { id: "stats", label: "Daily Stats", icon: BarChart3 },
   { id: "links", label: "Quick Links", icon: ExternalLink },
+];
+
+const closingItems: NavItem[] = [
+  { id: "notes", label: "Client Notes", icon: ClipboardList },
+  { id: "payment", label: "Collect Payment", icon: CreditCard, badge: "SETUP", badgeColor: "oklch(0.72 0.18 260)" },
 ];
 
 export default function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
@@ -59,42 +68,48 @@ export default function Sidebar({ activeSection, onSectionChange }: SidebarProps
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+      <nav className="flex-1 px-3 py-4 overflow-y-auto">
         <div className="mb-3">
-          <span
-            className="px-3 text-xs font-bold uppercase tracking-widest"
-            style={{ color: "var(--lp-slate)", fontFamily: "Montserrat, sans-serif" }}
-          >
-            Tools
-          </span>
+          <span className="px-3 text-xs font-bold uppercase tracking-widest" style={{ color: "var(--lp-slate)", fontFamily: "Montserrat, sans-serif" }}>Tools</span>
         </div>
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = activeSection === item.id;
-          return (
-            <button
-              key={item.id}
-              onClick={() => onSectionChange(item.id)}
-              className={`lp-nav-item w-full text-left ${isActive ? "active" : ""}`}
-            >
-              <Icon className="w-4 h-4 flex-shrink-0" />
-              <span>{item.label}</span>
-              {item.id === "builder" && (
-                <span
-                  className="ml-auto text-xs font-bold px-2 py-0.5 rounded-full"
-                  style={{
-                    background: "var(--lp-orange-glow)",
-                    color: "var(--lp-orange)",
-                    fontSize: "0.65rem",
-                    letterSpacing: "0.06em",
-                  }}
-                >
-                  CORE
-                </span>
-              )}
-            </button>
-          );
-        })}
+        <div className="space-y-1 mb-5">
+          {toolsItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeSection === item.id;
+            return (
+              <button key={item.id} onClick={() => onSectionChange(item.id)} className={`lp-nav-item w-full text-left ${isActive ? "active" : ""}`}>
+                <Icon className="w-4 h-4 flex-shrink-0" />
+                <span>{item.label}</span>
+                {item.badge && (
+                  <span className="ml-auto text-xs font-bold px-2 py-0.5 rounded-full" style={{ background: "var(--lp-orange-glow)", color: "var(--lp-orange)", fontSize: "0.65rem", letterSpacing: "0.06em" }}>
+                    {item.badge}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="mb-3 pt-2 border-t" style={{ borderColor: "oklch(1 0 0 / 8%)" }}>
+          <span className="px-3 text-xs font-bold uppercase tracking-widest" style={{ color: "var(--lp-slate)", fontFamily: "Montserrat, sans-serif" }}>Closing</span>
+        </div>
+        <div className="space-y-1">
+          {closingItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeSection === item.id;
+            return (
+              <button key={item.id} onClick={() => onSectionChange(item.id)} className={`lp-nav-item w-full text-left ${isActive ? "active" : ""}`}>
+                <Icon className="w-4 h-4 flex-shrink-0" />
+                <span>{item.label}</span>
+                {item.badge && (
+                  <span className="ml-auto text-xs font-bold px-2 py-0.5 rounded-full" style={{ background: `${item.badgeColor || "var(--lp-orange)"}20`, color: item.badgeColor || "var(--lp-orange)", fontSize: "0.65rem", letterSpacing: "0.06em", border: `1px solid ${item.badgeColor || "var(--lp-orange)"}40` }}>
+                    {item.badge}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
       </nav>
 
       {/* Footer */}

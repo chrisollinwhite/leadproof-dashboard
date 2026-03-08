@@ -47,6 +47,8 @@ interface FormData {
   logoUrl: string;
   primaryColor: string;
   secondaryColor: string;
+  // Google Maps
+  googleMapsEmbed: string;
   // Website config
   niche: string;
   version: string;
@@ -63,6 +65,7 @@ const defaultForm: FormData = {
   businessCity: "",
   businessState: "",
   logoUrl: "",
+  googleMapsEmbed: "",
   primaryColor: "#0A1F44",
   secondaryColor: "#FF6B00",
   niche: "",
@@ -107,6 +110,14 @@ function injectBusinessData(template: string, form: FormData): string {
   if (form.secondaryColor) {
     result = result.split("#FF6B00").join(form.secondaryColor);
     result = result.split("#C9A84C").join(form.secondaryColor);
+  }
+
+  // Replace Google Maps embed
+  if (form.googleMapsEmbed) {
+    // Replace any existing iframe src that looks like a maps embed
+    result = result.replace(/src="https:\/\/www\.google\.com\/maps\/embed[^"]*"/gi, `src="${form.googleMapsEmbed}"`);
+    // Also replace placeholder text if template uses one
+    result = result.split("[[GOOGLE_MAPS_EMBED]]").join(form.googleMapsEmbed);
   }
 
   // Replace logo URL if provided
@@ -389,6 +400,22 @@ export default function WebsiteBuilder() {
                     maxLength={2}
                   />
                 </div>
+              </div>
+              <div>
+                <label className="lp-label">Google Maps Embed URL (optional)</label>
+                <div className="relative">
+                  <MapPin className="absolute left-3 top-3 w-4 h-4" style={{ color: "var(--lp-slate)" }} />
+                  <textarea
+                    value={form.googleMapsEmbed}
+                    onChange={e => updateForm("googleMapsEmbed", e.target.value)}
+                    placeholder="Paste the Google Maps embed src URL here (from Google Maps > Share > Embed a map > copy the src URL)"
+                    rows={3}
+                    className="lp-input w-full pl-10 pr-4 py-3 resize-none text-xs"
+                  />
+                </div>
+                <p className="text-xs mt-1" style={{ color: "var(--lp-slate)" }}>
+                  Google Maps → Share → Embed a map → copy only the URL inside src="..."
+                </p>
               </div>
               <div>
                 <label className="lp-label">Logo URL (optional)</label>

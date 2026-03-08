@@ -5,9 +5,11 @@ import TrainingVideos from "@/components/TrainingVideos";
 import SalesScripts from "@/components/SalesScripts";
 import DailyStats from "@/components/DailyStats";
 import QuickLinks from "@/components/QuickLinks";
+import ClientNotes from "@/components/ClientNotes";
+import CollectPayment from "@/components/CollectPayment";
 import { Menu, X } from "lucide-react";
 
-export type Section = "builder" | "training" | "scripts" | "stats" | "links";
+export type Section = "builder" | "training" | "scripts" | "stats" | "links" | "notes" | "payment";
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState<Section>("builder");
@@ -20,6 +22,8 @@ export default function Dashboard() {
       case "scripts": return <SalesScripts />;
       case "stats": return <DailyStats />;
       case "links": return <QuickLinks />;
+      case "notes": return <ClientNotes />;
+      case "payment": return <CollectPayment />;
       default: return <WebsiteBuilder />;
     }
   };
