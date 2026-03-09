@@ -3,7 +3,7 @@ import { Section } from "@/pages/Dashboard";
 import {
   Code2,
   PlayCircle,
-  FileText,
+  BookOpen,
   BarChart3,
   ExternalLink,
   LogOut,
@@ -28,7 +28,7 @@ type NavItem = {
 const toolsItems: NavItem[] = [
   { id: "builder", label: "Website Builder", icon: Code2, badge: "CORE" },
   { id: "training", label: "Training Videos", icon: PlayCircle },
-  { id: "scripts", label: "Sales Scripts", icon: FileText },
+  { id: "scripts", label: "Master Doc", icon: BookOpen },
   { id: "stats", label: "Daily Stats", icon: BarChart3 },
   { id: "links", label: "Quick Links", icon: ExternalLink },
 ];
