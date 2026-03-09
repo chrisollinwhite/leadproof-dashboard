@@ -1,4 +1,4 @@
-import { ExternalLink, Monitor, BookOpen, HelpCircle, Globe, MessageSquare } from "lucide-react";
+import { ExternalLink, Monitor, BookOpen, HelpCircle, Globe, MessageSquare, CreditCard, Zap, TrendingUp } from "lucide-react";
 import { toast } from "sonner";
 
 interface LinkItem {
@@ -11,6 +11,36 @@ interface LinkItem {
   badge?: string;
   placeholder?: boolean;
 }
+
+const paymentLinks: LinkItem[] = [
+  {
+    id: "starter",
+    title: "Starter Package",
+    description: "Send this payment link to close your Starter package deal on the spot.",
+    url: "https://leadproofwebsites.com/starter",
+    icon: CreditCard,
+    color: "oklch(0.72 0.15 145)",
+    badge: "Starter",
+  },
+  {
+    id: "growth",
+    title: "Growth Package",
+    description: "Send this payment link to close your Growth package deal on the spot.",
+    url: "https://leadproofwebsites.com/growth",
+    icon: TrendingUp,
+    color: "oklch(0.72 0.18 260)",
+    badge: "Growth",
+  },
+  {
+    id: "dominator",
+    title: "Dominator Package",
+    description: "Send this payment link to close your Dominator package deal on the spot.",
+    url: "https://leadproofwebsites.com/dominator",
+    icon: Zap,
+    color: "var(--lp-pink)",
+    badge: "Dominator",
+  },
+];
 
 const links: LinkItem[] = [
   {
@@ -83,6 +113,77 @@ export default function QuickLinks() {
         </p>
       </div>
 
+      {/* Payment Links */}
+      <div className="mb-6">
+        <div
+          className="flex items-center gap-2 mb-3 pb-2 border-b"
+          style={{ borderColor: "var(--lp-border)" }}
+        >
+          <CreditCard className="w-4 h-4" style={{ color: "var(--lp-pink)" }} />
+          <span
+            className="text-xs font-bold uppercase tracking-widest"
+            style={{ color: "var(--lp-text-mid)", fontFamily: "Montserrat, sans-serif" }}
+          >
+            Payment Links
+          </span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {paymentLinks.map(link => {
+            const Icon = link.icon;
+            return (
+              <button
+                key={link.id}
+                onClick={() => handleClick(link)}
+                className="lp-card p-4 text-left group transition-all hover:scale-[1.01]"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <div
+                    className="flex items-center justify-center w-9 h-9 rounded-xl flex-shrink-0"
+                    style={{
+                      background: `${link.color}20`,
+                      border: `1px solid ${link.color}40`,
+                    }}
+                  >
+                    <Icon className="w-4 h-4" style={{ color: link.color }} />
+                  </div>
+                  <span
+                    className="font-bold text-sm"
+                    style={{ fontFamily: "Montserrat, sans-serif", color: "var(--lp-text)" }}
+                  >
+                    {link.title}
+                  </span>
+                </div>
+                <p className="text-xs leading-relaxed mb-3" style={{ color: "var(--lp-text-mid)" }}>
+                  {link.description}
+                </p>
+                <div
+                  className="flex items-center gap-1 text-xs font-bold"
+                  style={{ color: link.color }}
+                >
+                  <ExternalLink className="w-3 h-3" />
+                  Send Payment Link
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Other Links */}
+      <div className="mb-3">
+        <div
+          className="flex items-center gap-2 mb-3 pb-2 border-b"
+          style={{ borderColor: "var(--lp-border)" }}
+        >
+          <ExternalLink className="w-4 h-4" style={{ color: "var(--lp-pink)" }} />
+          <span
+            className="text-xs font-bold uppercase tracking-widest"
+            style={{ color: "var(--lp-text-mid)", fontFamily: "Montserrat, sans-serif" }}
+          >
+            Tools & Resources
+          </span>
+        </div>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {links.map(link => {
           const Icon = link.icon;
