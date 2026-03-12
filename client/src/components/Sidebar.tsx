@@ -151,6 +151,35 @@ export default function Sidebar({ activeSection, onSectionChange }: SidebarProps
             );
           })}
         </div>
+
+        {/* TOOLS section */}
+        <div className="mb-3 pt-2 border-t mt-5" style={{ borderColor: "oklch(1 0 0 / 8%)" }}>
+          <span
+            className="px-3 text-xs font-bold uppercase tracking-widest"
+            style={{ color: "oklch(0.55 0.015 240)", fontFamily: "Montserrat, sans-serif" }}
+          >
+            Tools
+          </span>
+        </div>
+        <div className="space-y-1">
+          <a
+            href="https://stats.leadproofwebsites.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lp-nav-item w-full text-left"
+            style={{ textDecoration: "none" }}
+          >
+            <ExternalLink className="w-4 h-4 flex-shrink-0" />
+            <span>Stat Tools</span>
+            <span
+              className="ml-auto flex items-center justify-center w-5 h-5 rounded"
+              style={{ background: "var(--lp-pink)", flexShrink: 0 }}
+            >
+              <ExternalLink className="w-3 h-3 text-white" />
+            </span>
+          </a>
+        </div>
+
       </nav>
 
       {/* Footer */}
