@@ -237,7 +237,7 @@ export default function WebsiteBuilder() {
           businessAddress: `${form.businessAddress}, ${form.businessCity}, ${form.businessState}`,
           niche: form.niche,
           websiteVersion: form.version,
-          source: "LeadProof Sales Dashboard",
+          source: "LeadProof Team Dashboard",
         }),
       });
       setGhlSent(true);

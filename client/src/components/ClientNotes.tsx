@@ -94,7 +94,7 @@ ADDITIONAL NOTES FROM CLOSING CALL
 ${form.additionalNotes || "None"}
 
 ================================
-Sent from LeadProof Sales Dashboard`;
+Sent from LeadProof Team Dashboard`;
 }
 
 export default function ClientNotes() {

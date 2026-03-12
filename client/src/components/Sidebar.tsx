@@ -67,7 +67,7 @@ export default function Sidebar({ activeSection, onSectionChange }: SidebarProps
               LeadProof
             </div>
             <div className="text-xs" style={{ color: "oklch(0.72 0.012 240)" }}>
-              Sales Dashboard
+              Team Dashboard
             </div>
           </div>
         </div>

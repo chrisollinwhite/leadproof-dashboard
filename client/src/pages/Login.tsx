@@ -57,7 +57,7 @@ export default function Login() {
             LeadProof
           </h1>
           <p className="text-sm mt-1" style={{ color: "var(--lp-text-muted)" }}>
-            Sales Team Dashboard
+            Team Dashboard
           </p>
         </div>
 
